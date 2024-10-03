@@ -1,14 +1,14 @@
 import { Component } from "react";
 
 
-class Home extends Component{
+class Cart extends Component{
     render(){
         return(
             <div>
-                Home
+                Cart
             </div>
         )
     }
 }
 
-export default Home
+export default Cart

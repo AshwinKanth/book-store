@@ -1,14 +1,14 @@
 import { Component } from "react";
 
 
-class Home extends Component{
+class BookDetails extends Component{
     render(){
         return(
             <div>
-                Home
+                BookDetails
             </div>
         )
     }
 }
 
-export default Home
+export default BookDetails

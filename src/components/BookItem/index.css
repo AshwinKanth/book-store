@@ -1,0 +1,118 @@
+.bookItem-container {
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    height: 450px;
+    border-radius: 10px;
+    transition: .5s;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.bookItem-container:hover {
+    transform: scale(1.0);
+    box-shadow: rgba(103, 197, 228, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .bookItem-container{
+        width: 40%;
+        height: 330px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .bookItem-container{
+        height: 50%;    
+        width: 40%;
+        padding: 20px;
+    }
+}
+
+.bookImage {
+    height: 50%;
+    width: 100%;
+}
+
+
+.bookTitle {
+    font-size: 16px;
+    text-align: center;
+}
+
+.bookPrice {
+    font-size: 16px;
+}
+
+
+.priceSpan {
+    font-weight: bold;
+}
+
+.bag-fav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .bag-fav-container{
+        margin-bottom: 20px;
+    }
+}
+
+.addToBag {
+    color: #000;
+    height: 30px;
+    width: 120px;
+    font-size: 14px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid;
+    background-color: transparent;
+
+}
+
+@media screen and (max-width: 768px){
+    .bookImage{
+        height: 40%;
+    }.bookTitle{
+        font-size: 13px;
+    }.bookPrice{
+        font-size: 13px;
+    }.addToBag{
+        font-size: 12px;
+        width: 100px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .bookImage{
+        height: 50%;
+    }.bookTitle{
+        font-size: 20px;
+    }.bookPrice{
+        font-size: 18px;
+    }.addToBag{
+        font-size: 14px;
+        width: 100px;
+    }
+}
+
+.favButton {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.addToBag:hover {
+    background-color: #FFE619;
+}

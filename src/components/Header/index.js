@@ -12,10 +12,12 @@ class Header extends Component {
         return (
             <nav className="nav-container">
                 <div className="header-container">
-                    <div className="navLogo-container">
-                        <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1728035532/BookLogo_1_knctja.png" alt="logo" className="logo" />
-                        <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1728035547/BookStoreLogo_1_dfgqxt.png" alt="bookStoreLogo" className="storeLogo" />
-                    </div>
+                    <Link to="/" className="nav-link">
+                        <div className="navLogo-container">
+                            <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1728035532/BookLogo_1_knctja.png" alt="logo" className="logo" />
+                            <img src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1728035547/BookStoreLogo_1_dfgqxt.png" alt="bookStoreLogo" className="storeLogo" />
+                        </div>
+                    </Link>
                     <ul className="navList-container">
                         <Link to="/books" className="nav-link">
                             <li><IoBookOutline className="navIcon" /></li>

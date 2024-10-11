@@ -25,7 +25,8 @@ class BookList extends Component {
             const updatedData = data.books.map(eachBook => ({
                 title: eachBook.title,
                 image: eachBook.image,
-                price: eachBook.price
+                price: eachBook.price,
+                isbn13: eachBook.isbn13
             }))
             this.setState({ booksData: updatedData })
         }

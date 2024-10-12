@@ -1,4 +1,7 @@
 import { Component } from "react";
+
+import { IoSearchCircle } from "react-icons/io5";
+
 import Header from "../Header";
 import BookItem from "../BookItem";
 
@@ -6,13 +9,14 @@ import "./index.css"
 
 
 class BookList extends Component {
-    state = { booksData: [] }
+    state = { booksData: [], searchInput: "" }
 
     componentDidMount() {
         this.getBooksData()
     }
 
     getBooksData = async () => {
+
         const apiUrl = "https://api.itbook.store/1.0/new"
         const options = {
             method: "GET"
@@ -32,17 +36,49 @@ class BookList extends Component {
         }
     }
 
+    onChangeSearchInput = (event) => {
+        this.setState({ searchInput: event.target.value })
+    }
+
+    renderSearchInput = () => {
+        const { searchInput } = this.state
+
+        return (
+            <div className="search-container">
+                <IoSearchCircle size={20} />
+                <input type="search" className="searchInput" value={searchInput} onChange={this.onChangeSearchInput} placeholder="Search Books" />
+            </div>
+        )
+    }
+
     renderBooks = () => {
-        const { booksData } = this.state
+        const { booksData, searchInput } = this.state
+
+        const searchResults = booksData.filter(each =>
+            each.title.toLowerCase().includes(searchInput.toLowerCase()))
 
         return (
             <>
-                <h1 className="booksHeading">Books</h1>
-                <ul className="booksList-container">
-                    {booksData.map(each => (
-                        <BookItem bookItemData={each} key={each.id} />
-                    ))}
-                </ul>
+                {searchResults.length > 0 ? (
+                    <ul className="booksList-container">
+                        {searchResults.map(each => (
+                            <BookItem bookItemData={each} key={each.id} />
+                        ))}
+                    </ul>
+                ) : (
+                    <div className="no-book-view">
+                        <img
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz/nxt-trendz-no-products-view.png"
+                            className="no-book-img"
+                            alt="no book"
+                        />
+                        <h1 className="no-book-heading">No Book Found</h1>
+                        <p className="no-book-description">
+                            We could not find any books.
+                        </p>
+                    </div>
+
+                )}
             </>
         )
     }
@@ -52,6 +88,10 @@ class BookList extends Component {
             <>
                 <Header />
                 <div className="bookListBg-conatiner">
+                    <div className="books-search-container">
+                        <h1 className="booksHeading">Books</h1>
+                        {this.renderSearchInput()}
+                    </div>
                     {this.renderBooks()}
                 </div>
             </>

@@ -101,6 +101,8 @@
     border-radius: 7px;
 }
 
+
+
 .addBuyButton:hover {
     background-color: #FFE619;
     color: #fff;
@@ -110,6 +112,7 @@
     text-decoration: none;
     color: #000;
 }
+
 
 
 .detailsText {

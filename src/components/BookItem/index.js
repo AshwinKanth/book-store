@@ -7,9 +7,7 @@ import "./index.css"
 const BookItem = (props) => {
     const { bookItemData } = props
     const { title, price, image, isbn13, url } = bookItemData
-
-    console.log(url)
-
+    
     const bookTitleSize = title.slice(0, 25)
 
     return (

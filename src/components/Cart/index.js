@@ -2,13 +2,12 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import CartItem from "../CartItem";
+import CartSummary from "../CartSummary";
 import AppContext from "../../Context/AppContext";
 
 import './index.css'
 
 class Cart extends Component {
-    state={isLoading: false}
-
     renderCartItems = () => (
         <AppContext.Consumer>
             {value => {
@@ -44,6 +43,8 @@ class Cart extends Component {
                                         <CartItem cartItemDetails={eachBook} key={eachBook.isbn13} />
                                     ))}
                                 </ul>
+                                <hr className="cartBreakLine"/>
+                                <CartSummary />
                             </div>
                         )}
                     </>

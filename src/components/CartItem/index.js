@@ -25,6 +25,8 @@ const CartItem = (props) => (
                 removeCartItem(isbn13)
             }
 
+            const priceSplit = parseFloat(price.slice(1))
+
             return (
                 <li className='cart-item'>
                     <img src={image} alt={title} className='cart-product-image'/>
@@ -40,7 +42,7 @@ const CartItem = (props) => (
                             </button>
                         </div>
                         <div className='total-price-remove-container'>
-                            <p className='cart-total-price'>{price} /-</p>
+                            <p className='cart-total-price'>$ {priceSplit * quantity} /-</p>
                             <button className='remove-button' type='button' onClick={onRemoveCartItem}>
                                 Remove
                             </button>

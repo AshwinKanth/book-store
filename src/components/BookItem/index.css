@@ -21,7 +21,7 @@
     .bookItem-container{
         width: 40%;
         height: 300px;
-        padding-bottom: 30px;
+        padding-bottom: 40px;
     }
 }
 
@@ -65,6 +65,7 @@
 @media (min-width: 768px) and (max-width: 1100px){
     .bag-fav-container{
         margin-bottom: 20px;
+        
     }
 }
 

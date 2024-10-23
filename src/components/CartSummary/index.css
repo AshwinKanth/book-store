@@ -1,0 +1,52 @@
+.cartSummary-container{
+    align-self: flex-end;
+
+}
+
+.cartSummaryHeading{
+    color: #3e4c59;
+    font-size: 25px;
+    font-family: "Roboto";
+}
+
+.order-total{
+    font-size: 18px;
+    color: #3e3f40;
+}
+
+.orderTotal-span{
+    color: #000;
+}
+
+.cartItems-count{
+    font-size: 16px;
+    color: #3e3f40;
+}
+
+.checkOutButton{
+    height: 35px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+.checkOutButton:hover {
+    background-color: #FFE619;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+@media screen and (max-width: 768px){
+    .cartSummaryHeading{
+        font-size: 20px;
+    }.order-total{
+        font-size: 15px;
+    }.cartItems-count{
+        font-size: 12px;
+    }.checkOutButton{
+        font-size: 10px;
+    }
+}

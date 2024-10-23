@@ -36,7 +36,6 @@ class BookList extends Component {
 
         if (response.ok === true) {
             const data = await response.json()
-            console.log(data)
             const updatedData = data.books.map(eachBook => ({
                 title: eachBook.title,
                 image: eachBook.image,

@@ -3,11 +3,31 @@ import { Link } from "react-router-dom";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineFavoriteBorder, MdOutlineShoppingBag } from "react-icons/md";
 
+import AppContext from "../../Context/AppContext";
+
 
 import "./index.css"
 
 
 class Header extends Component {
+
+    renderCartItemsCount = () =>(
+        <AppContext.Consumer>
+            {value => {
+                const {cartList} = value
+                const cartItemsCount = cartList.length
+
+                return(
+                    <>
+                        {cartItemsCount > 0 ? (
+                            <span className="cartListCountBadge">{cartList.length}</span>
+                        ):null}
+                    </>
+                )
+            }}
+        </AppContext.Consumer>
+    )
+
     render() {
         return (
             <nav className="nav-container">
@@ -29,6 +49,7 @@ class Header extends Component {
                         </Link>
                         <Link to="/cart" className="nav-link">
                             <li><MdOutlineShoppingBag className="navIcon" /></li>
+                            {this.renderCartItemsCount()}
                             <p className="navItemName">Cart</p>
                         </Link>
                     </ul>

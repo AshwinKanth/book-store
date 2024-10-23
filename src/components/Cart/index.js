@@ -1,11 +1,64 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
+import Header from "../Header";
+import CartItem from "../CartItem";
+import AppContext from "../../Context/AppContext";
 
+import './index.css'
 
-class Cart extends Component{
-    render(){
-        return(
+class Cart extends Component {
+    state={isLoading: false}
+
+    renderCartItems = () => (
+        <AppContext.Consumer>
+            {value => {
+                const { removeAllCartItems, cartList } = value
+
+                const onClickRemoveAllCartItems = () => {
+                    removeAllCartItems()
+                }
+
+                return (
+                    <>
+                        {cartList.length === 0 ? (
+                            <div className="cart-empty-view-container">
+                                <img
+                                    src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png"
+                                    className="cart-empty-img"
+                                    alt="cart empty"
+                                />
+                                <h1 className="cart-empty-heading">Your Cart Is Empty</h1>
+
+                                <Link to="/books">
+                                    <button type="button" className="exploreButton">
+                                        Explore
+                                    </button>
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="cart-container">
+                                <h1 className="cartHeading">My Cart</h1>
+                                <button className="removeAllButton" type="button" onClick={onClickRemoveAllCartItems}>Remove All</button>
+                                <ul className="cartList">
+                                    {cartList.map(eachBook => (
+                                        <CartItem cartItemDetails={eachBook} key={eachBook.isbn13} />
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </>
+                )
+            }}
+        </AppContext.Consumer>
+    )
+
+    render() {
+        return (
             <div>
-                Cart
+                <Header />
+                <div className="cartBg-container">
+                    {this.renderCartItems()}
+                </div>
             </div>
         )
     }

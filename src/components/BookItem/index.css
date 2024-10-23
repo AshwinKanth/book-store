@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     width: 20%;
-    height: 400px;
+    height: 450px;
     border-radius: 10px;
     transition: .5s;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -21,6 +21,7 @@
     .bookItem-container{
         width: 40%;
         height: 300px;
+        padding-bottom: 30px;
     }
 }
 
@@ -67,7 +68,7 @@
     }
 }
 
-.addToBag {
+.buyNowButton {
     color: #000;
     height: 30px;
     width: 100px;
@@ -78,17 +79,17 @@
     border: 1px solid;
     background-color: transparent;
     font-weight: bold;
-
 }
+
 
 @media screen and (max-width: 768px){
     .bookImage{
         height: 55%;
     }.bookTitle{
-        font-size: 13px;
+        font-size: 12px;
     }.bookPrice{
         font-size: 13px;
-    }.addToBag{
+    }.buyNowButton{
         font-size: 12px;
         width: 100px;
     }
@@ -101,9 +102,9 @@
         font-size: 20px;
     }.bookPrice{
         font-size: 18px;
-    }.addToBag{
+    }.buyNowButton{
         font-size: 14px;
-        width: 100px;
+        width: 130px;
     }
 }
 
@@ -114,7 +115,7 @@
     background-color: transparent;
 }
 
-.addToBag:hover {
+.buyNowButton:hover {
     background-color: #FFE619;
     color: #fff;
     border: 1px solid #000;

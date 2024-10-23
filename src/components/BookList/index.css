@@ -1,6 +1,5 @@
 .bookListBg-conatiner{
     padding-top: 100px;
-    /* background-color: red; */
 }
 
 @media screen and (max-width: 768px){
@@ -18,7 +17,6 @@
 
 .booksHeading{
    padding-left: 60px;
-   /* padding-top: 30px; */
    font-size: 35px;
    
 }

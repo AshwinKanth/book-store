@@ -47,11 +47,14 @@
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 0;
+    width: 100%;
+    padding-bottom: 10px;
   }
   
   @media screen and (min-width: 768px) {
     .cart-product-title {
       font-size: 16px;
+      width: 40%;
     }
   }
   

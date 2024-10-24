@@ -28,7 +28,7 @@ class Cart extends Component {
                                 />
                                 <h1 className="cart-empty-heading">Your Cart Is Empty</h1>
 
-                                <Link to="/books">
+                                <Link to="/books" className="navLink">
                                     <button type="button" className="exploreButton">
                                         Explore
                                     </button>

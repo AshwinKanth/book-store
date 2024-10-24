@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import AppContext from "../../Context/AppContext";
 
 
@@ -20,7 +22,9 @@ const CartSummary = () => (
                     <h1 className="cartSummaryHeading">Cart Summary</h1>
                     <h1 className="order-total">Order Total: <span className="orderTotal-span">$ {total} /-</span></h1>
                     <p className="cartItems-count">{cartList.length} items in cart</p>
-                    <button className="checkOutButton" type="button">Proceed to Checkout</button>
+                    <Link to="/checkout" className="nav-link">
+                        <button className="checkOutButton" type="button">Proceed to Checkout</button>
+                    </Link>
                 </div>
             )
         }}

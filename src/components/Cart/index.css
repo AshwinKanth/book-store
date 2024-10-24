@@ -96,3 +96,7 @@
     border: 1px dashed #000;
     width: 100%;
 }
+
+.navLink{
+    text-decoration: none;
+}

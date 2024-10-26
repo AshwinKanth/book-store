@@ -22,7 +22,7 @@ class Cart extends Component {
                         {cartList.length === 0 ? (
                             <div className="cart-empty-view-container">
                                 <img
-                                    src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png"
+                                    src="https://res.cloudinary.com/dq1ktqbtb/image/upload/v1729925157/cart_image_qveusl.png"
                                     className="cart-empty-img"
                                     alt="cart empty"
                                 />

@@ -1,0 +1,45 @@
+.favItem{
+    height: 350px;
+}
+
+@media screen and (max-width: 768px) {
+    .favItem{
+        width: 40%;
+        height: 250px;
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .favItem{
+        width: 40%;
+        height: 450px;
+    }
+}
+
+.removeFavButton{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    align-self: flex-end;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .removeFavButton{
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .removeFavButton{
+        margin-top: 130px;
+    }
+}
+
+.favNav-link{
+    text-decoration: none;
+    color: #000;
+
+}

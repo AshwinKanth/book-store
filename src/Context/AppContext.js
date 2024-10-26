@@ -8,6 +8,10 @@ const AppContext = React.createContext({
     removeAllCartItems: () =>{},
     IncrementCartItemQuantity: () =>{},
     decrementCartItemQuantity: () =>{},
+
+    favouriteList:[],
+    removeFavouriteItem: () =>{},
+    addFavouriteItem: () =>{},
 })
 
 export default AppContext

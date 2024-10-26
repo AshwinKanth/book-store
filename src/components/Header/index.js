@@ -28,6 +28,23 @@ class Header extends Component {
         </AppContext.Consumer>
     )
 
+    renderFavItemsCount = () =>(
+        <AppContext.Consumer>
+            {value => {
+                const {favouriteList} = value
+                const favItemsCount = favouriteList.length
+
+                return(
+                    <>
+                        {favItemsCount > 0 ? (
+                            <span className="cartListCountBadge">{favouriteList.length}</span>
+                        ):null}
+                    </>
+                )
+            }}
+        </AppContext.Consumer>
+    )
+
     render() {
         return (
             <nav className="nav-container">
@@ -45,6 +62,7 @@ class Header extends Component {
                         </Link>
                         <Link to="/favourite" className="nav-link">
                             <li><MdOutlineFavoriteBorder className="navIcon" /></li>
+                            {this.renderFavItemsCount()}
                             <p className="navItemName">Wishlist</p>
                         </Link>
                         <Link to="/cart" className="nav-link">

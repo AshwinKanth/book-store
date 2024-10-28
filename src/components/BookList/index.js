@@ -17,7 +17,7 @@ const apiStatusConstant = {
 
 
 class BookList extends Component {
-    state = { booksData: [], searchInput: "",  apiStatus: apiStatusConstant.initial}
+    state = { booksData: [], searchInput: "", apiStatus: apiStatusConstant.initial }
 
     componentDidMount() {
         this.getBooksData()
@@ -26,13 +26,24 @@ class BookList extends Component {
     getBooksData = async () => {
 
         this.setState({ apiStatus: apiStatusConstant.inProgress })
+        const {searchInput} = this.state
 
-        const apiUrl = "https://api.itbook.store/1.0/new"
+        let apiUrl;
+
+        if (searchInput === ""){
+             apiUrl = "https://api.itbook.store/1.0/new"
+        }else{
+             apiUrl = `https://api.itbook.store/1.0/search/${searchInput}`
+        }
+
+        console.log(apiUrl)
+
         const options = {
             method: "GET"
         }
 
         const response = await fetch(apiUrl, options)
+
 
         if (response.ok === true) {
             const data = await response.json()
@@ -44,13 +55,24 @@ class BookList extends Component {
                 isbn13: eachBook.isbn13
             }))
             this.setState({ booksData: updatedData, apiStatus: apiStatusConstant.success })
-        }else {
-             this.setState({ apiStatus: apiStatusConstant.failure })
-}
+            console.log(updatedData)
+        } else {
+            this.setState({ apiStatus: apiStatusConstant.failure })
+        }
     }
 
     onChangeSearchInput = (event) => {
         this.setState({ searchInput: event.target.value })
+    }
+
+    onEnterSearchInput = (event) =>{
+        if (event.key === 'Enter'){
+            this.getBooksData()
+        }
+    }
+
+    onClickSearchIcon = () =>{
+        this.getBooksData()
     }
 
     renderSearchInput = () => {
@@ -58,26 +80,24 @@ class BookList extends Component {
 
         return (
             <div className="search-container">
-                <IoSearchCircle size={20} />
-                <input type="search" className="searchInput" value={searchInput} onChange={this.onChangeSearchInput} placeholder="Search Books" />
+                <IoSearchCircle size={20} onClick={this.onClickSearchIcon} />
+                <input type="search" className="searchInput" value={searchInput}  onChange={this.onChangeSearchInput} onKeyDown={this.onEnterSearchInput} placeholder="Search Books" />
             </div>
         )
     }
 
-    renderBooks = () => {
-        const { booksData, searchInput } = this.state
 
-        const searchResults = booksData.filter(each =>
-            each.title.toLowerCase().includes(searchInput.toLowerCase()))
+    renderBooks = () => {
+        const { booksData } = this.state
 
         return (
             <>
-                {searchResults.length > 0 ? (
-                    <ul className="booksList-container">
-                        {searchResults.map(each => (
-                            <BookItem bookItemData={each} key={each.id} />
-                        ))}
-                    </ul>
+                {booksData.length > 0 ? (
+                        <ul className="booksList-container">
+                            {booksData.map(each => (
+                                <BookItem bookItemData={each} key={each.id} />
+                            ))}
+                        </ul>
                 ) : (
                     <div className="no-book-view">
                         <img
@@ -100,11 +120,11 @@ class BookList extends Component {
     renderLoadingView = () => (
         <div className="loading-container">
             <RotatingSquare
-            height="100"
-            width="100"
-            color="#fcf003"
-            ariaLabel="rotating-triangles-loading"
-        />
+                height="100"
+                width="100"
+                color="#fcf003"
+                ariaLabel="rotating-triangles-loading"
+            />
         </div>
     )
 
@@ -127,19 +147,19 @@ class BookList extends Component {
 
 
     renderBooksListView = () => {
-    const { apiStatus } = this.state
+        const { apiStatus } = this.state
 
-    switch (apiStatus) {
-        case apiStatusConstant.success:
-            return this.renderBooks();
-        case apiStatusConstant.inProgress:
-            return this.renderLoadingView();
-        case apiStatusConstant.failure:
-            return this.renderFailureView()
-        default:
-            return null;
+        switch (apiStatus) {
+            case apiStatusConstant.success:
+                return this.renderBooks();
+            case apiStatusConstant.inProgress:
+                return this.renderLoadingView();
+            case apiStatusConstant.failure:
+                return this.renderFailureView()
+            default:
+                return null;
+        }
     }
-}
 
     render() {
         return (

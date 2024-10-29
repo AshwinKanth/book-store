@@ -32,11 +32,14 @@ const Favourites = () => (
                                 </Link>
                             </div>
                         ) : (
+                            <div>
+                                <h1 className='fav-heading'>Favourites</h1>
                             <ul className='fav-list'>
                                 {favouriteList.map(eachCartItem => (
                                     <FavouriteItem key={eachCartItem.id} favBookData={eachCartItem} />
                                 ))}
                             </ul>
+                            </div>
                         )}
                     </div>
                 </>
